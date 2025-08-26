@@ -1,0 +1,356 @@
+
+
+.reserve-form-container-wrapper{
+    width: 700px;
+    max-height: 1000px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.reserve-form-container{
+    display: grid;
+    grid-template-columns: 40% 60%;
+    max-height: 460px;
+    overflow-y: auto;
+}
+
+.reserve-form-wraper{
+    grid-row: 1;
+}
+
+.reserve-form{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 20px;
+    
+   
+}
+
+.reserve-form .button-wraper:not{
+    flex: 1;
+}
+
+.form-title{
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.button-wraper{
+    margin-top: 18px;
+    text-align: center;
+}
+
+.reserve-button{
+    color: white;
+    background-color: #69b41e;
+    border: none;
+    padding: 10px 50px 10px 50px;
+    border-radius: 10px;
+    font-size: 15px;
+    position: relative;
+
+}
+
+.reserve-button:active{
+    transform: scale(0.98);
+}
+
+.reserve-button:hover{
+    cursor: pointer;
+    background-color: #5e9924;
+}
+.name-surname{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.label{
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.input{
+    all: unset;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    font-size: 14px;
+    background-color: #E5E4E2;
+}
+
+.input:focus{
+   border: 2px solid black;
+}
+
+
+.close-modal-button-wraper{
+    // text-align: right;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+#close-modal-button{
+    display: inline-block;
+    color: rgb(193, 190, 190);
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#close-modal-button:hover{
+    color: grey;
+    cursor: pointer;
+}
+
+#back-button{
+    font-size: 20px;
+    font-weight: bolder;
+    color: rgb(193, 190, 190);
+}
+
+#back-button:hover{
+    color: grey;
+    cursor: pointer;
+}
+
+.input-warning-container{
+    margin-top: 2px;
+    display: flex;
+    gap: 5px;
+}
+
+#input-warning-icon{
+    width: 12px;
+    height: 12px;
+}
+
+.input-warning{
+    font-size: 12px;
+    color: red;
+    font-weight: 500;
+}
+
+
+
+
+
+
+#input-warning-icon{
+    width: 12px;
+    height: 12px;
+}
+
+
+.input-warning{
+    font-size: 12px;
+    color: red;
+    font-weight: 500;
+}
+
+//Styling for warning if email or password wrong for existing user window
+
+.wrong-details-warning{
+    text-align: center;
+}
+
+#wrong-details-warning-message{
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid red;
+    display: inline-block;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgb(250, 198, 198);
+    
+}
+
+
+//Styling for warning if user already exists
+.user-exists-warning{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#user-exists-warning-message{
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid red;
+    display: inline-block;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgb(250, 198, 198);
+    
+}
+
+
+
+//Styling for cabin details section
+
+.cabin-details-section{
+    box-sizing: border-box;
+   grid-row: 1;
+    //height: 100%;
+    background-color: #F9F6EE;
+    padding: 10px;
+}
+
+#cabin-picture{
+    width: 100%;
+    height: 200px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+   
+}
+
+#cabin-name{
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.location-container{
+    display: flex;
+    margin: 5px 0px 10px 0px;
+}
+
+#pin{
+    width: 18px;
+    height: 18px;
+}
+
+#cabin-location{
+    font-size: 14px;
+    font-weight: 400;
+}
+
+#total-price{
+    display: flex;
+    justify-content: space-between;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#guests{
+    border-top: 1px solid lightgrey;
+    padding-top: 15px;
+    margin-top: 20px;
+    color: grey;
+    font-size: 12px;
+}
+
+#price-per-night{
+   font-size: 12px;
+   font-weight: 600;
+   margin-bottom: 10px;
+}
+
+#dates{
+    display: flex;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+#dates > img {
+    width: 12px;
+    height: 12px;
+}
+
+#check-in-out{
+    margin-top: 30px;
+}
+
+
+//Styling for user selection buttons
+
+.select-user-buttons-container{
+    height: 430px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.select-user{
+    color: white;
+    background-color: #69b41e;
+    border: none;
+    padding: 10px 50px 10px 50px;
+    border-radius: 10px;
+    font-size: 15px;
+    
+
+}
+
+.select-user:active{
+    transform: scale(0.98);
+}
+
+.select-user:hover{
+    cursor: pointer;
+    background-color: #5e9924;
+}
+
+.select-user-buttons-wraper{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+//Styling for new user reserve form
+
+.new-user-reserve-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    gap: 25px;
+}
+
+
+//Styling for booking successful container
+
+
+
+.succes-message-container{
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #5e9924;
+    font-weight: bold;
+}
+
+
+
+#continue-button{
+    color: white;
+    background-color: #69b41e;
+    border: none;
+    padding: 10px 50px 10px 50px;
+    border-radius: 10px;
+    font-size: 15px;
+    margin-top: 30px;
+}
+
+#continue-button:active{
+    transform: scale(0.98);
+}
+
+#continue-button:hover{
+    cursor: pointer;
+    background-color: #5e9924;
+}

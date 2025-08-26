@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two factor authentication</title>
+    <link rel="stylesheet" href="/2factorAuth/2factor.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="two-factor" class="login-container">
+        <form class="form" @submit.prevent="formSubmit">
+            <div id="title">Enter your 6 digit security code</div>
+
+            <div id="wrong-credentials" v-if="wrongCredentialsWarning">
+                ! The security code is incorrect
+            </div>
+
+            <div class="input-container">
+                <input class="credentials-inputs" id="securityCode" maxlength="6" type="text" v-model="securityCode" autocomplete="off" />
+                <div id="warning" v-if="noCodeWarning">&#9888; Please enter a code</div>
+            </div>
+            
+            <button type="submit" id="submit">Login</button>
+        </form>
+
+    </div>  
+        
+    <script src="/2factorAuth/2factor.js"></script>
+</body>
+</html>

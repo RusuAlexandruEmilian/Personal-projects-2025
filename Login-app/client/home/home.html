@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="home.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="mainPage">
+        <div class="navbar">
+            <h1 @click="homePage()">Home</h1>
+            <!-- Appear if signed out -->
+            <button class="login-register-button" @click="displayLoginForm()" v-if="displayButtons">Login</button>
+            <button class="login-register-button" v-if="displayButtons" @click="displayRegisterForm()">Register</button>
+            
+            <!-- Appear if signed in -->
+             <div class="user-container-wrapper">
+                <div class="user-container" v-if="displayUserIcon" @click="toggleUserOtionsDisplay">
+                    <div class="user-icon">
+                        {{ name.charAt(0).toUpperCase() }}
+                    </div>
+                    <div id="user-name">
+                        {{ name }} {{ surname }}
+                    </div>
+                </div>
+
+                <div class="user-options-container" v-if="displayUserOptions">
+                    <div class="user-options" @click="displayWelcome = false; toggleUserOtionsDisplay(); displayUserSettings=true">Account settings</div>
+                    <div class="user-options" @click="signOut">Sign out</div>
+                 </div>
+             </div>
+            
+
+        </div>
+
+       <div id="welcome-message" v-if="displayWelcome">
+            Welcome {{ name }}!
+        </div>
+
+        <div class="account-settings" v-if="displayUserSettings">
+            <div class="user-options">User details</div>
+            <div class="user-options" @click="twoFactorAuthentication()">{{ enableDisable_2Factor }}</div>
+        </div>
+
+        <div class="enable-two-factor-wrapper" v-if="dispalyTwoFactorWindow">
+            <div class="enable-two-factor">
+                <img id="qr-code" :src="qrcode">
+                <button id="continue" @click="reloadPage()">Continue</button>
+            </div>
+        </div>
+       
+
+    </div>
+
+    <script src="home.js"></script>
+</body>
+</html>

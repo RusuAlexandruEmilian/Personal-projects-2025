@@ -1,0 +1,6 @@
+<div class="card-container">
+    @for(cabin of (cabins$ | async); track cabin.id){
+        <app-cabin-card [cabin]="cabin" [guests_and_number_of_nights]="guests" [numberOfNights]="numberOfNights" [check_in]="check_in" [check_out]="check_out"/>
+    }
+</div>
+

@@ -1,0 +1,161 @@
+
+    
+    <div class="dateForm" [ngClass]="{'focused': isInputFocused, 'selectDateFocused': isSelectDateFocused}" [formGroup]="range">
+
+        <input type="text" placeholder="Destination" id="destination_select" (click)="isGuestsOptionsOpen = false" (focus)="isInputFocused = true; isDestinationInputFocused = true; isDestinationEmpty = false" (blur)="isInputFocused = false; isDestinationInputFocused = false"  autocomplete="off" [formControl]="destinationValue">
+        @if(isDestinationInputFocused && destinationValueTrack != ''){
+            <div class="autocomplete_results_container">
+                <div class="autocomplete_results_content">
+                    <ul class="destination_search_results">
+                       @for(dest of destinationSearchResults; track $index){
+                            @if(dest.county && !dest.location && !dest.name){
+                                <li class="destination_search_results_element" (mousedown)="setDestinationInputValue(dest.county)">
+                                    <div class="icon_container">
+                                        <img src="assets/icons/pin.png" class="icon_for_destination">
+                                    </div>
+                
+                                    <div class="destination_text_subtext_container">
+                                        <div class="destination_text">{{dest.county}}</div>
+                                        <div class="destination_subtext">Romania</div>
+                                    </div>
+                                </li>
+                            }
+    
+                            @if(dest.county && dest.location && !dest.name){
+                                <li class="destination_search_results_element" (mousedown)="setDestinationInputValue(dest.location)">
+                                    <div class="icon_container">
+                                        <img src="assets/icons/pin.png" class="icon_for_destination">
+                                    </div>
+                
+                                    <div class="destination_text_subtext_container">
+                                        <div class="destination_text">{{dest.location}}</div>
+                                        <div class="destination_subtext">{{dest.county}}, Romania</div>
+                                    </div>
+                                </li>
+                            }
+    
+                            @if(dest.county && dest.location && dest.name){
+                                <li class="destination_search_results_element" (mousedown)="setDestinationInputValue(dest.name)">
+                                    <div class="icon_container">
+                                        <img src="assets/icons/log-cabin.png" class="icon_for_destination">
+                                    </div>
+                
+                                    <div class="destination_text_subtext_container">
+                                        <div class="destination_text">{{dest.name}}</div>
+                                        <div class="destination_subtext">{{dest.location}}, {{dest.county}}, Romania</div>
+                                    </div>
+                                </li>
+                            }
+                        
+                            
+                       }
+                                    
+                    
+                    </ul>
+                </div>
+            </div>
+        }
+        
+        @if(isDestinationEmpty){
+            <div class=" warning_container">
+                <img src="assets/icons/exclamation.png" class="warningIcon">
+                <span class="warning_text">Please insert a destination</span>
+            </div>
+        }
+        
+
+
+        <mat-form-field color="accent">
+                <mat-date-range-input color="accent" [rangePicker]="picker" [min]="minDate">
+                    <input matStartDate formControlName="start" placeholder="Start date" >
+                    <input matEndDate formControlName="end" placeholder="End date" >
+                </mat-date-range-input>
+                
+                
+                <button mat-button (click)="picker.open();  isGuestsOptionsOpen=false" class="selectDate">{{ check_in }}  &mdash;  {{ check_out }}</button>
+              
+                
+                <mat-date-range-picker #picker panelClass="custom-picker" (opened)="isSelectDateFocused=true; isInputFocused=true" (closed)="isSelectDateFocused=false; isInputFocused=false"></mat-date-range-picker>
+           
+            
+        </mat-form-field>
+        
+        
+        <div id="guests_select_container">
+            <div id="guests_select" tabindex="0"  (focus)="isInputFocused = true" (blur)="isInputFocused = false" (click)="toggle_guests_options_visibility()">
+                @if(adultsNumber > 0){
+                    adults: {{ adultsNumber }}
+                }
+                @else{ Guests }
+                
+                @if(childrenNumber > 0){
+                    , children: {{ childrenNumber }}
+                }
+                
+
+                @if(range.get('pets')?.value === true){
+                    , pets
+                }
+                
+            </div>
+            @if (isGuestsOptionsOpen){
+                <div id="guests_options" tabindex="0"  (focus)="isInputFocused = true" (blur)="isInputFocused = false">
+                    <ul class="guest_otions_list">
+                        <li class="guest_otions_list_item">
+                            <div class="adults_guests_option_h4_agesRange_container">
+                                <h4 style="font-family: sans-serif;" class="adults_guests_option_heading">Adults</h4> 
+                                <div class="guests_option_agesRange">Ages 13 and above</div>
+                            </div> 
+                            <div class="plusMinusContainer">
+                                <button class="plusMinus" (click)="adultsNumber = increaseGuests(adultsNumber)">+</button>
+                                <span id="guests_number">{{ adultsNumber }}</span>
+                                <button class="plusMinus" (click)="adultsNumber = decreaseGuests(adultsNumber)">-</button>
+                            </div>
+                            
+                        </li>
+                        
+                        <li class="guest_otions_list_item">
+                            <div class="adults_guests_option_h4_agesRange_container">
+                                <h4 style="font-family: sans-serif;" class="adults_guests_option_heading">Children</h4> 
+                                <div class="guests_option_agesRange">Ages 2 to 12</div>
+                            </div> 
+                            <div class="plusMinusContainer">
+                                <button class="plusMinus" (click)="childrenNumber = increaseGuests(childrenNumber)">+</button>
+                                <span id="guests_number">{{ childrenNumber }}</span>
+                                <button class="plusMinus" (click)="childrenNumber = decreaseGuests(childrenNumber)">-</button>
+                            </div>
+                        </li>
+                        <li class="guest_otions_list_item">
+                            <div class="adults_guests_option_h4_agesRange_container">
+                                <h4 style="font-family: sans-serif;" class="adults_guests_option_heading">Pets</h4> 
+                                <div class="guests_option_agesRange"></div>
+                            </div> 
+                            <div class="plusMinusContainer">
+                                <mat-slide-toggle formControlName="pets">
+                                </mat-slide-toggle>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            }
+            
+        </div>
+        
+        
+        <button class="searchAvailable" (click)="searchAvailableCabins(); isGuestsOptionsOpen = false" id="search_button">Search</button>
+    </div>
+    
+    
+   
+    
+
+
+
+
+
+
+
+
+
+
+ 

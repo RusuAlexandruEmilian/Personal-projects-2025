@@ -1,0 +1,71 @@
+<div class="main-page">
+    @if(isNoDatesWarning){
+        <div class="no-dates-warning">
+            <div id="no-dates-warning-message">
+                <img id="no-dates-warning-icon" src="assets/icons/exclamation.png">
+                No dates selected. Please insert <strong>check-in</strong> and <strong>check-out</strong> dates in the search bar !
+            </div>
+       </div>
+    }
+    @for(cabin of (cabin$ | async); track cabin.id){
+        <div class="cabinName-reserveButton-container">
+            <h1>{{ cabin.name }}</h1>
+            <button id="reserve-button" (click)="openReserveForm()">Reserve</button>
+        </div>
+        <div class="image-grid">
+            <img class="large_image gallery_image" src="{{ cabin.picture }}">
+            <img class="gallery_image"  src="assets/images/cabin-interior-and-garden-images/bedroom1.jpg">
+            <img class="gallery_image"  src="assets/images/cabin-interior-and-garden-images/living_room.jpg">
+            <img class="gallery_image"  src="assets/images/cabin-interior-and-garden-images/garden_pool.jpg">
+            <div class="image_button">
+                <img class="gallery_image" id="last_image"  src="assets/images/cabin-interior-and-garden-images/grill.jpg"> 
+                <button id="view_images" (click)="openImageGallery()"><img id="button_icon" src="assets/icons/gallery3.png">View all pictures</button> 
+            </div>
+              
+        </div>
+
+        
+
+        <div class="description-container">
+            <h1>Description</h1>
+            <div id="description">{{ cabin.description }}</div>
+        </div>
+
+
+        <div class="guest_reviews_container">
+            <div class="reviews-title-addReview-container">
+                <h1 id="guest-reviews-title">Guest Reviews</h1>
+                <div class="add-review-wraper">
+                    <div id="add-review" (click)="openReviewForm()">+ Add review</div>
+                </div>
+                
+            </div>
+            
+            <div class="cabin-rating-container">
+                <div id="cabin-rating">{{ cabin.rating }}</div>
+                <app-cabin-star-rating [rating]="cabin.rating"/>
+                <div id="number-reviews">{{ numberOfReviews }} reviews</div>
+            </div>
+        </div>
+
+        <div class="reviews-cards-container">
+            @for(review of (reviews$ | async); track review.id){
+                <app-user-review-card [review]="review"/>
+            }
+        </div>
+       
+    }
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

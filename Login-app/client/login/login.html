@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+    <link rel="stylesheet" href="/login/login.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="login" class="login-container">
+        <form class="form" @submit.prevent="formSubmit">
+            <div id="title">Login</div>
+
+            <div id="wrong-credentials" v-if="wrongCredentialsWarning">
+                {{ warningMessage }}
+            </div>
+
+            <div class="input-container">
+                <input class="credentials-inputs" id="email" type="text" placeholder="Email" v-model="email" autocomplete="off" />
+                <div id="warning" v-if="emailWarning">&#9888; Please insert email</div>
+            </div>
+            <div class="input-container">
+                <input class="credentials-inputs" id="password" placeholder="Password" v-bind:type="passwordVisible ? 'text' : 'password'">
+                <div id="warning" v-if="passwordWarning">&#9888; Please insert password</div>
+                <label for="togglePassword">
+                    <input type="checkbox" id="togglePassword" v-model="passwordVisible" autocomplete="off"/>
+                    Show Password
+                </label>
+            </div>
+            <button type="submit" id="submit">Login</button>
+            <div>
+                Don't have an acocunt yet, <a href="../register/register.html">register</a>
+            </div>
+        </form>
+    </div>
+
+    
+   
+    
+    <script src="/login/login.js"></script>
+</body>
+</html>

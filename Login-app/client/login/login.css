@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.login-container{
+    background-image: url('../images/background.jpg');
+    background-size: 100vw 100vh;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    font-family: sans-serif;
+}
+
+
+.form{
+    width: 300px;
+    min-height: 450px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0px 0px 20px 1px grey;
+    padding: 20px;
+}
+
+#submit{
+    color: white;
+    border: none;
+    width: 100%;
+    background-color: #0404fc;
+    padding: 10px 10px;
+    font-size: 15px;
+    margin-top: 60px;
+}
+
+#submit:hover{
+    background-color: #0404db;
+    cursor: pointer;
+}
+
+#title{
+    margin-bottom: 40px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.credentials-inputs{
+    all: unset;
+    border-bottom: 2px solid lightgrey;
+    width: 100%;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding: 5px 0px 5px 20px;
+}
+
+.credentials-inputs::placeholder{
+    font-size: 14px;
+    color: #808080;
+}
+
+.credentials-inputs:focus::placeholder {
+  opacity: 0;
+}
+
+
+#email{
+    background-image: url('../images/user.png');
+}
+
+#password{
+    background-image: url('../images/key.png');
+}
+
+#warning{
+    color: red;
+    font-size: 14px;
+    margin-top: 2px;
+    font-weight: 600;
+}
+
+.input-container{
+    width: 100%;
+}
+
+label{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+label:hover{
+    cursor: pointer;
+}
+
+#wrong-credentials{
+   border:1px solid red;
+   padding: 15px;
+   font-size: 14px;
+   font-weight: 600;
+   color: red;
+   background-color: rgb(245, 203, 203);
+   white-space: pre-line;
+   text-align: center;
+}
+
+
+

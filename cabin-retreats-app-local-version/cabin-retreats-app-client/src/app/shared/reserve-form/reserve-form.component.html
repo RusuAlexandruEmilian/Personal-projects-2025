@@ -1,0 +1,187 @@
+
+<div class="reserve-form-container-wrapper">
+    <div class="reserve-form-container">
+        <div class="cabin-details-section">
+            <img id="cabin-picture" src="{{data[0].picture}}">
+            <div id="cabin-name">{{ data[0].name }}</div>
+            <div class="location-container">
+                <img src="assets/icons/pin.png" id="pin">
+                <div id="cabin-location">{{ data[0].location }}, {{ data[0].county }}</div>
+            </div>
+            <div id="check-in-out">
+                <div id="dates">
+                    <img src="assets/icons/calendar.png">
+                    <div>Check-in: {{ data[1][1] }}</div>
+                </div>
+                <div id="dates">
+                    <img src="assets/icons/calendar.png">
+                    <div>Check-out: {{ data[1][2] }}</div>
+                </div>
+            </div>
+            <div id="guests">{{ data[1][3] }}</div>
+            <div id="price-per-night">{{ data[0].price_per_night }} &euro;/night</div>
+            <div id="total-price">
+                <div>Total</div>
+                <div>{{ data[1][4] }} &euro;</div>
+            </div>
+        </div>
+        
+        
+        <div class="reserve-form-wraper">
+            
+            @if(isNewUser){
+                <div class="close-modal-button-wraper">
+                    <div id="back-button" (click)="isNewUser = false; isExistingUser = false; showSelectUser = true">&#8592;</div>
+                    <div id="close-modal-button" (click)="closeModal()">&#10006;</div>
+                </div>
+                <div class="form-title">Reserve a cabin</div>
+                <form class="reserve-form" [formGroup]="bookFormNewUser" (submit)="bookWithNewUser()">
+                  <div class="name-surname">
+                        <div>
+                            <div class="label">Name*</div>
+                            <input class="input" type="text" formControlName="name">
+                            @if(showInputWarning === 'name'){
+                                <div class="input-warning-container">
+                                    <img src="assets/icons/exclamation.png" id="input-warning-icon">
+                                    <div class="input-warning">{{ inputWarning }}</div>
+                                </div> 
+                            }
+                        </div>
+                        <div>
+                            <div class="label">Surname*</div>
+                            <input type="text" class="input" formControlName="surname">
+                            @if(showInputWarning === 'surname'){
+                                <div class="input-warning-container">
+                                    <img src="assets/icons/exclamation.png" id="input-warning-icon">
+                                    <div class="input-warning">{{ inputWarning }}</div>
+                                </div> 
+                            }
+                        </div>
+                    </div>
+                    <div class="input-container">
+                        <div class="label">Phone Number*</div>
+                        <input type="text" class="input">
+                        @if(showInputWarning === 'phone'){
+                            <div class="input-warning-container">
+                                <img src="assets/icons/exclamation.png" id="input-warning-icon">
+                                <div class="input-warning">{{ inputWarning }}</div>
+                            </div> 
+                        } 
+                    </div>
+                    <div class="input-container">
+                        <div class="label">Email Address*</div>
+                        <input type="text" class="input" formControlName="email">
+                        @if(showInputWarning === 'email'){
+                            <div class="input-warning-container">
+                                <img src="assets/icons/exclamation.png" id="input-warning-icon">
+                                <div class="input-warning">{{ inputWarning }}</div>
+                            </div> 
+                        } 
+                    </div>
+                    <div class="input-container">
+                        <div class="label">Password*</div>
+                        <input type="text" class="input" formControlName="password">
+                        @if(showInputWarning === 'password'){
+                            <div class="input-warning-container">
+                                <img src="assets/icons/exclamation.png" id="input-warning-icon">
+                                <div class="input-warning">{{ inputWarning }}</div>
+                            </div>
+                        }  
+                    </div>
+                    <div class="button-wraper">
+                        @if(showUserExistsWarning){
+                            <div class="user-exists-warning">
+                                <div id="user-exists-warning-message">
+                                    <img id="input-warning-icon" src="assets/icons/exclamation.png">
+                                    User already exists
+                                </div>
+                           </div>
+                        }
+                        <button type="submit" class="reserve-button">Reserve</button>
+                    </div>
+                </form>
+            }
+            
+            
+            @if(showSelectUser){
+                <div class="close-modal-button-wraper">
+                    <div id="back-button" (click)="isNewUser = false; isExistingUser = false; showSelectUser = true">&#8592;</div>
+                    <div id="close-modal-button" (click)="closeModal()">&#10006;</div>
+                </div>
+                <div class="select-user-buttons-container">
+                    <div class="select-user-buttons-wraper">
+                    <button class="select-user" (click)="isExistingUser = true; showSelectUser = false">Exsting User</button>
+                    <button class="select-user" (click)="isNewUser = true; showSelectUser = false">New User</button>
+                     </div> 
+                </div>
+            }
+            
+            
+            @if(isExistingUser){
+                <div class="close-modal-button-wraper">
+                    <div id="back-button" (click)="isNewUser = false; isExistingUser = false; showSelectUser = true">&#8592;</div>
+                    <div id="close-modal-button" (click)="closeModal()">&#10006;</div>
+                </div>
+                <div class="form-title">Reserve a cabin</div>
+                <form class="new-user-reserve-form" [formGroup]="bookFormExistingUser" (submit)="bookWithExistingUser()">
+                    
+                    @if(showWrongEmailPasswordWarning){
+                        <div class="wrong-details-warning">
+                            <div id="wrong-details-warning-message">
+                                <img id="input-warning-icon" src="assets/icons/exclamation.png">
+                                Wrong email or password
+                            </div>
+                       </div>
+                    }
+        
+                    <div class="input-container">
+                        <div class="label">Email*</div>
+                        <input class="input" type="text" formControlName="email">
+                        @if(showInputWarning_forExistingUserForm === 'email'){
+                            <div class="input-warning-container">
+                                <img src="assets/icons/exclamation.png" id="input-warning-icon">
+                                <div class="input-warning">Please insert an email</div>
+                            </div>
+                        }
+                    </div>
+        
+                    <div class="input-container">
+                        <div class="label">Password*</div>
+                        <input class="input" type="text" formControlName="password">
+                        @if(showInputWarning_forExistingUserForm === 'password'){
+                            <div class="input-warning-container">
+                                <img src="assets/icons/exclamation.png" id="input-warning-icon">
+                                <div class="input-warning">Please insert a password</div>
+                            </div>
+                        }
+            
+                    </div>
+                   
+                    <div class="button-wraper">
+                       <button type="submit" class="reserve-button">Reserve</button>
+                    </div>
+                </form>
+            }
+
+
+
+            @if(showSuccesMessage){
+                <div class="succes-message-container">
+                    <div id="succes-mesage">&#10004; Congratulations! Cabin booked successfully</div>
+                    <button routerLink="" id="continue-button" (click)="closeModal()">Continue</button>
+                </div>
+            }
+                
+            
+
+        </div>
+        
+        
+    
+       
+        
+
+    </div>
+    
+    
+</div>

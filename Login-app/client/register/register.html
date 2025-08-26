@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/register/register.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="register" class="register-container">
+        <form class="form" @submit.prevent="formSubmit">
+            <div id="title">Register</div>
+
+            <div class="wrong-credentials" v-if="wrongCredentialsWarning">
+                User already exists
+            </div>
+
+            <div class="wrong-credentials" v-if="passwordsNoMatchWarning">
+                Passwords do not match
+            </div>
+
+            <div class="name-surname-container">
+                <div class="input-container">
+                    <input class="credentials-inputs" id="name" type="text" placeholder="Name" v-model="Name" autocomplete="off" />
+                    <div id="warning" v-if="nameWarning">&#9888; Please insert name</div>
+                </div>
+
+                <div class="input-container">
+                    <input class="credentials-inputs" id="surname" type="text" placeholder="Surname" v-model="Surname" autocomplete="off" />
+                    <div id="warning" v-if="surnameWarning">&#9888; Please insert surname</div>
+                </div>
+            </div>
+
+
+            <div class="input-container">
+                <input class="credentials-inputs" id="email" type="text" placeholder="Email" v-model="email" autocomplete="off" />
+                <div id="warning" v-if="emailWarning">&#9888; Please insert email</div>
+            </div>
+
+            <div class="input-container">
+                <input class="credentials-inputs" id="password" type="password" placeholder="Password" v-model="password" autocomplete="off" />
+                <div id="warning" v-if="passwordWarning">&#9888; Please insert password</div>
+            </div>
+
+            <div class="input-container">
+                <input class="credentials-inputs" id="confirmPassword" type="password" placeholder="Confirm Password" v-model="confirmPassword" autocomplete="off" />
+                <div id="warning" v-if="confirmPasswordWarning">&#9888; Please insert confirmed password</div>
+            </div>
+
+            <button type="submit" id="submit">Register</button>
+            <div>
+                Already have an account, <a href="../login/login.html">login</a>
+            </div>
+        </form>
+    </div>
+
+    
+   
+    
+    <script src="/register/register.js"></script>
+</body>
+</html>

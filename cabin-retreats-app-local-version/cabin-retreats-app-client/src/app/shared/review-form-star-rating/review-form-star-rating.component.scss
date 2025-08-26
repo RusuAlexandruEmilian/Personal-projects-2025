@@ -1,0 +1,27 @@
+.star{
+    color: gray;
+    font-size: 40px;
+ }
+ 
+ .rated{
+     color: gold;  
+ }
+ 
+ .star:hover, .star:hover ~ .star{
+     cursor: pointer;
+     color: gold;
+ }
+ 
+ .stars-container{
+     display: flex;
+     flex-direction: row-reverse;
+     justify-content: flex-end;
+ }
+ 
+ #rating{
+     align-content: center;
+     font-weight: bold;
+     font-size: 20px;
+ }
+
+ 

@@ -1,0 +1,435 @@
+@use '@angular/material' as mat;
+
+.dateForm{
+
+   background: white;
+   border: none;
+   border-radius: 10px;
+   box-shadow: 0px 0px 6px 1px grey;
+   
+   
+   
+
+    mat-date-range-input{
+        display: none;
+    }
+
+    .mat-mdc-form-field-subscript-wrapper, .mat-mdc-form-field-bottom-align::before {
+        display: none;
+    }
+
+    .mdc-text-field{
+        padding: 0;
+        width: 300px;
+    }
+
+    
+
+    .mat-mdc-form-field-infix {
+        min-height: 0;
+        padding: 0;
+        
+    }
+
+    .mdc-text-field--no-label .mat-mdc-form-field-infix{
+        padding-top: 0;
+        padding-bottom: 0;
+       
+    }
+
+    .mdc-line-ripple{
+        display: none;
+    }
+
+    .mat-mdc-form-field-flex{
+        background: white;
+    }
+
+    .mat-mdc-form-field-infix:hover {
+        background: white;
+    }
+
+    
+    
+    .selectDate{
+        width: 100%;
+        height: 35px;
+        background-color: white;
+        border-right: 1px solid lightgray;
+        border-top: none;
+        border-bottom: none;
+        border-left:  1px solid lightgray;
+        color: black;
+        text-align: center;
+        font-weight: bold;
+        cursor: pointer;
+        font-family: sans-serif;
+        font-size: 13.3px;
+        
+        
+        
+
+
+        
+    }
+
+    .selectDate:hover{
+        background-color: #e3e3e5;
+        height: 49px;
+        border: none;
+        border-radius: 10px;
+        
+        
+       
+    }
+
+
+
+}
+
+//**** Styling for the guests_otions window items ****
+
+
+
+
+.guest_otions_list_item{
+    display: flex;
+    justify-content:space-between ;
+    border-bottom: 1px solid lightgray;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.guest_otions_list_item:last-child{
+    border: none;
+}
+
+.guests_option_agesRange{
+    color: grey;
+    font-size: 0.8em;
+     
+}
+
+.guest_otions_list{
+    list-style: none;
+    padding: 0; 
+}
+
+ .adults_guests_option_heading{
+    margin: 0;
+ }
+
+
+ .plusMinus{
+    width: 30px;
+    height: 30px;
+   
+    background-color: white;
+    border: 1.5px solid gray;
+    color: gray;
+    border-radius: 50%;
+    
+
+ }
+
+.plusMinus:hover{
+    border: 1.5px solid black;
+    color: black;
+}
+
+.plusMinusContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90px;
+}
+
+
+
+//**** General Stylings ****
+
+
+
+
+
+#search_button{
+    width: 80px;
+    height: 40px;
+    border: none;
+    background-color: #69b41e;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 6px;
+    margin-left: 6px; 
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    transition: transform 0.07s ease 0.07s;
+    color: white;
+    
+}
+
+#destination_select{
+    height: 48px;
+    border: none;
+    font-weight: bold;
+    padding-left: 10px;
+    cursor: pointer;
+    margin-right: 5px;
+    border-radius: 10px;
+    
+}
+
+#guests_select{
+    display: inline-block;
+    position: relative;
+    height: 20px;
+    border: 1px solid;
+    width: 215px;
+    height: 48px;
+    vertical-align: middle;
+    line-height: 50px;
+    margin-left: 5px;
+    padding-left: 10px;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 13.3px;
+    border: none;
+    user-select: none;
+    
+}
+
+#guests_options{
+    position: absolute;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 5px;
+    height: 270px;
+    width: 300px;
+    box-shadow: 0px 0px 6px 3px grey;
+    padding: 10px 40px 10px 40px;
+}
+
+#guests_select_container{
+    display: inline-block; 
+}
+
+
+
+//**** Hover styling ****
+
+  #destination_select:hover{
+    background-color: #e3e3e5;
+    border-radius: 10px;
+    height: 48px;
+    border: none;
+  }
+
+  #search_button:hover{
+    background-color: #5ea219;
+
+  }
+
+
+  #guests_select:hover{
+    background-color: #e3e3e5;
+    border-radius: 10px;
+    cursor: pointer;
+
+  }
+
+
+  //**** Focus styling ****
+
+
+  #destination_select:focus{
+       outline: none;
+       cursor: text;
+       background-color: white!important;
+        border-radius: 10px;
+        box-shadow: 0px 0px 6px 3px grey;
+  }
+
+
+
+
+  #search_button:active{
+    transform: scale(0.96);
+  }
+
+  
+
+  .focused{
+    background-color: lightgray;
+  
+//     border-radius: 10px!important;
+    
+    .selectDate{
+        background-color: lightgray;
+        border-color: gray;
+    }
+
+    .mat-mdc-form-field-infix:hover {
+        background: lightgray;
+    }
+
+    .mat-mdc-form-field-flex{
+        background: lightgray;
+    }
+
+    #destination_select{
+        background-color: lightgray;
+    }
+
+    #destination_select:hover{
+        background-color: #e3e3e5;
+    }
+
+    
+  }
+
+#guests_select:focus{
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 6px 3px grey;
+}
+
+.selectDateFocused{
+    .selectDate{
+        background-color: white !important;
+        height: 48px !important;
+        border: none !important;
+    }
+
+    .mdc-text-field{
+        border-radius: 10px;
+        box-shadow: 0px 0px 6px 3px grey;
+    }
+    
+
+    
+}
+
+
+//Styling for aucomplete destination input
+.autocomplete_results_container{
+    position: absolute;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 5px;
+    max-height: 380px;
+    width: 300px;
+    box-shadow: 0px 0px 6px 3px grey;
+    overflow: hidden;
+    
+}
+
+.autocomplete_results_content{
+    overflow-y: auto;
+    max-height: 270px;
+    
+}
+
+.destination_search_results{
+    all: unset;
+    list-style: none;
+}
+
+.destination_search_results_element{
+    display: flex;
+    border-bottom: 1px solid lightgray;
+    padding: 10px;
+    gap: 20px;
+    
+}
+
+.destination_search_results_element:hover{
+    background-color: #e3e3e5;
+    cursor: pointer;
+}
+
+.destination_search_results_element:last-child{
+    border: none;
+}
+
+
+.icon_container{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.icon_for_destination{
+    width: 25px;
+}
+
+.destination_text{
+    font-weight: bold;
+}
+
+.destination_subtext{
+    font-size: 0.8em;
+    color: grey;
+}
+
+
+
+
+
+
+.test_functionality{
+    background-color: white;
+    position: absolute;
+}
+
+
+
+//Stylings for no destination warning
+
+.warningIcon{
+    width: 20px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.warning_container{
+    position: absolute;
+    margin-top: 5px;
+}
+
+.warning_text{
+    vertical-align: middle;
+    color: red;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+
+
+mat-slide-toggle{
+    @include mat.slide-toggle-overrides((
+        track-outline-color: lightgrey,
+        selected-hover-state-layer-color: none, 
+        selected-hover-handle-color: #69b41e,
+        selected-track-color: lightgrey,
+        selected-hover-track-color: lightgrey,
+        selected-icon-color: white,
+        selected-handle-color: #69b41e,
+        selected-pressed-track-color: lightgrey,
+        selected-focus-track-color: lightgrey,
+        selected-focus-handle-color: #69b41e,
+        selected-pressed-handle-color: #69b41e,
+        selected-pressed-state-layer-color: none,
+        unselected-pressed-track-color: lightgrey,
+        unselected-track-color: lightgrey,
+        unselected-pressed-state-layer-color: none,
+        unselected-hover-track-color: lightgrey,
+        unselected-icon-color: white,
+        unselected-pressed-handle-color: red,
+        unselected-focus-handle-color: red,
+        unselected-handle-color: red,
+        unselected-focus-track-color: lightgrey,
+        unselected-hover-handle-color: red,
+
+    ));
+}

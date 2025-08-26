@@ -1,0 +1,255 @@
+.review-form-container-wrapper{
+    border-radius: 10px;
+    width: 420px;
+    max-height: 1000px;
+    background-color: white;
+    overflow: hidden;
+  
+}
+
+.review-form-container{
+    background-color: white;
+    max-height: 350px;
+    padding: 10px;
+    overflow-y: auto;
+    
+}
+
+.close-modal-button-wraper{
+    text-align: right;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+#close-modal-button{
+    display: inline-block;
+    color: rgb(193, 190, 190);
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#close-modal-button:hover{
+    color: grey;
+    cursor: pointer;
+}
+
+
+#location-pin{
+    width: 15px;
+    height:15px;
+}
+
+#cabin-image{
+    width: 150px;
+    border-radius: 10px;
+}
+
+//styles for cabin details 
+.cabin-details-container{
+    display: flex;
+    border-bottom: 1px solid lightgrey;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-bottom: 18px;
+    height: 100px;
+}
+
+.location-container{
+    display: flex; 
+    gap: 2px;
+    margin-left: 14px;
+}
+
+.title-location-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+#cabin-title{
+    font-weight: bold;
+    font-size: 25px;
+    margin-left: 18px;
+}
+
+#cabin-location{
+    font-size: 14px;
+    
+}
+
+
+//Styling for form
+.review-form{
+    margin-top: 15px;
+}
+
+.input{
+    all: unset;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    font-size: 14px;
+    background-color: #E5E4E2;
+}
+
+.input:focus{
+    border: 2px solid black;
+ }
+
+.label{
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.input-warning-container{
+    margin-top: 2px;
+    display: flex;
+    gap: 5px;
+}
+
+#input-warning-icon{
+    width: 12px;
+    height: 12px;
+}
+
+.input-warning{
+    font-size: 12px;
+    color: red;
+    font-weight: 500;
+}
+
+.wrong-details-warning{
+    text-align: center;
+}
+
+#wrong-details-warning-message{
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid red;
+    display: inline-block;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgb(250, 198, 198);
+    
+}
+
+
+//Styling for user section
+.user-section{
+    border-bottom: 1px solid lightgrey;
+    padding-bottom: 18px;
+}
+
+#email-password-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+#user-section-title{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+//Styling for review section
+.review-section{
+    margin-top: 18px;
+}
+
+#review{
+    resize: none;
+}
+
+
+#rating-label{
+    margin: 0;
+}
+
+#review-label{
+    margin-top: 10px;
+}
+
+//Styling for add review button
+.add-review-button{
+    color: white;
+    background-color: #69b41e;
+    border: none;
+    padding: 10px 50px 10px 50px;
+    border-radius: 10px;
+    font-size: 15px;
+    
+
+}
+
+.add-review-button:active{
+    transform: scale(0.98);
+}
+
+.add-review-button:hover{
+    cursor: pointer;
+    background-color: #5e9924;
+}
+
+
+.add-review-button-wrapper{
+    margin-top: 12px;
+    text-align: center;
+}
+
+
+// Styles for message on form submit
+.message-form-submit-wrapper{
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.message-form-submit{
+    display: flex;
+    gap: 10px;
+}
+
+
+.submit-message{
+    color: rgb(1, 168, 1);
+    font-size: 15px;
+    font-weight: 500;
+    
+}
+
+.submit-message-red{
+    color: red;
+    font-size: 15px;
+    font-weight: 500;
+    
+}
+
+#check-icon{
+    width: 20px;
+}
+
+.continue-button{
+    color: white;
+    background-color: #69b41e;
+    border: none;
+    padding: 10px 50px 10px 50px;
+    border-radius: 10px;
+    font-size: 15px;
+    
+
+}
+
+.continue-button:active{
+    transform: scale(0.98);
+}
+
+.continue-button:hover{
+    cursor: pointer;
+    background-color: #5e9924;
+}

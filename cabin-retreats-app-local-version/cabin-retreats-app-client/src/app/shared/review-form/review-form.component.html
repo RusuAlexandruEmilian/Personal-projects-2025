@@ -1,0 +1,95 @@
+<div class="review-form-container-wrapper">
+    @if(showReviewForm){
+        <div class="close-modal-button-wraper">
+            <div id="close-modal-button" (click)="closeModal()">&#10006;</div>
+        </div>
+    
+        <div class="cabin-details-container">
+            <img id="cabin-image" src="{{ data[0].picture }}" alt="">
+            <div class="title-location-container">
+                <div id="cabin-title">{{ data[0].name }}</div>
+                <div class="location-container">
+                    <img id="location-pin" src="assets/icons/pin.png">
+                    <div id="cabin-location">{{ data[0].location }}, {{ data[0].county }}</div>
+                </div>
+            </div>
+        </div>
+    
+    
+    
+        <div class="review-form-container" #reviewFormContainer>
+           
+            @if(showWrongLoginDetailsWarning){
+                <div class="wrong-details-warning">
+                    <div id="wrong-details-warning-message">
+                        <img id="input-warning-icon" src="assets/icons/exclamation.png">
+                        Wrong email or password
+                    </div>
+               </div>
+            }
+            
+        
+            <form class="review-form" [formGroup]="reviewForm" (submit)="createReview()">
+                <div class="user-section">
+                    <div id="user-section-title">User</div>
+                    <div id="email-password-container">
+                        <div id="email-container">
+                            <div class="label">Email*</div>
+                            <input class="input" type="text" formControlName="email">
+        
+                            @if(showInputWarning === 'email'){
+                                <div class="input-warning-container">
+                                    <img id="input-warning-icon" src="assets/icons/exclamation.png">
+                                    <div class="input-warning">Please insert an email</div>
+                                </div>
+                            }
+                            
+                        </div>
+        
+                        <div id="password-container">
+                                <div class="label">Password*</div>
+                                <input class="input" type="text" formControlName="password">
+        
+                                @if(showInputWarning === 'password'){
+                                    <div class="input-warning-container">
+                                        <img id="input-warning-icon" src="assets/icons/exclamation.png">
+                                        <div class="input-warning">Please insert a password</div>
+                                    </div>
+                                }
+                    
+                            
+                        </div>
+                    </div>
+                </div>
+        
+        
+                <div class="review-section">
+                    <div class="label" id="rating-label">Rating</div>
+                    <app-review-form-star-rating (sendRating)="rating=$event"/>
+                    <div class="label" id="review-label">Review</div>
+                    <textarea id="review" cols="50" rows="8" formControlName="review"></textarea>
+                </div>
+        
+                <div class="add-review-button-wrapper">
+                    <button type="submit" class="add-review-button">Add review</button>
+                </div>
+            
+            </form>
+        </div>
+    }
+    
+
+    @if(showSubmitMessage){
+        <!-- Message on form submit -->
+        <div class="message-form-submit-wrapper">
+            <div class="message-form-submit">
+                <img id="check-icon" src="{{ submitMessageImg }}">
+                <div [ngClass]="submitMessageRed ? 'submit-message-red' : 'submit-message'">
+                    {{ submitMessage }}
+                </div>
+            </div>
+            <button class="continue-button" (click)="closeModal()">Continue</button>
+         </div>
+    }
+    
+</div>

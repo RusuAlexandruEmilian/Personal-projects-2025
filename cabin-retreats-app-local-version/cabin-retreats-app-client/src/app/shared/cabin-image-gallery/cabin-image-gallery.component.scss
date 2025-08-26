@@ -1,0 +1,38 @@
+.image-gallery-container-wrapper{
+    box-sizing: border-box;
+    width: 90%;
+    max-height: 1000px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px 20px 20px 20px;
+    margin: 0 auto;
+
+}
+.image-gallery-container{
+    max-height: 400px;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    
+    
+}
+
+img{
+   border-radius: 10px;
+   width: 100%;
+   height: 300px;
+}
+
+#close-modal-button{
+    text-align: right;
+    color: rgb(193, 190, 190);
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#close-modal-button:hover{
+    color: grey;
+    cursor: pointer;
+}

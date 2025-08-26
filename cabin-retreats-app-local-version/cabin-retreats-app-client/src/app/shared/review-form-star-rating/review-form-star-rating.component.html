@@ -1,0 +1,7 @@
+<div class="stars-container">
+    <div id="stars5" class="star" (click)="sendRatingToForm(5)" [ngClass]="rating >= 5 ? 'rated' : 'star'">&starf;</div>
+    <div id="stars4" class="star" (click)="sendRatingToForm(4)" [ngClass]="rating >= 4 ? 'rated' : 'star'">&starf;</div>
+    <div id="stars3" class="star" (click)="sendRatingToForm(3)" [ngClass]="rating >= 3 ? 'rated' : 'star'">&starf;</div>
+    <div id="stars2" class="star" (click)="sendRatingToForm(2)" [ngClass]="rating >= 2 ? 'rated' : 'star'">&starf;</div>
+    <div id="stars1" class="star" (click)="sendRatingToForm(1)" [ngClass]="rating >= 1 ? 'rated' : 'star'">&starf;</div>
+</div>

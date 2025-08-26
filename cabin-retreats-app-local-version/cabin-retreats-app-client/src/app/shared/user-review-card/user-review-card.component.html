@@ -1,0 +1,20 @@
+<div class="rating-container">
+    <div class="user-details">
+        <img id="user-icon" src="assets/icons/user.png">
+        <div id="user-name">{{userName}}</div>
+        <div id="review-date">{{ reviewDate }}</div>
+        <div></div>
+    </div>
+
+    <div class="review-text-rating">
+        <app-cabin-star-rating [rating]="review.rating" [starContainerStyle]="{'justify-content': 'flex-start'}" [starStyle]="{'font-size': '20px'}"/>
+        <div class="confirmed-user-container">
+            <img id="checked-icon" src="assets/icons/check.png" alt="">
+            <div id="confirmed-user">Reviewed by Cabin Retreats user</div>
+        </div>
+        <div id="review-text">{{review.review}}</div>
+    </div>
+</div>
+
+
+

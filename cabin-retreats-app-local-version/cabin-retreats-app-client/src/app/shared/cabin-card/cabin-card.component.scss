@@ -1,0 +1,131 @@
+.card{
+    height: 450px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid lightgrey;
+    padding: 5px;
+    
+}
+
+.card:hover{
+    
+    border: 1px solid darkgrey;
+}
+
+
+
+img{
+    
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    
+}
+
+a{
+    all: unset;
+}
+
+a:hover{
+    cursor: pointer;
+}
+
+//Styles for rating
+
+.rating-container{
+    display: flex;
+    gap: 5px;
+    margin: 10px 0px 10px 0px;
+}
+
+#star{
+    margin-top: 2px;
+    width: 20px;
+    height: 20px;
+}
+
+.rating-value{
+    background-color: grey;
+    border-radius: 5px;
+    padding: 2px;
+    color: white;
+}
+
+#number-of-reviews{
+    font-size: 12px;
+    margin-top: 4px;
+    margin-left: 15px;
+    color: grey;
+}
+
+
+
+//Styles for location
+
+#pin{
+    width: 20px;
+    height: 20px;
+}
+
+.location-container{
+    display: flex;
+    margin: 10px 0px 10px 0px;
+}
+
+#location{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+
+//Style for price
+.price-container{
+    margin-top: 40px;
+    text-align: right;
+}
+
+.price-currency-container{
+    margin-top: 5px;
+    display: flex;
+    gap: 5px;
+    justify-content: flex-end;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+#price-details{
+    font-size: 14px;
+    color: grey;
+}
+
+//Styles for Name
+#cabin-name{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+.card-details{
+    padding: 10px;
+}
+
+
+//Styles for total price and number of guests
+
+.guests_totalPrice_container{
+    border-top: 1px solid lightgray;
+    text-align: right;
+    margin-top: 5px;
+   
+}
+
+#guests{
+    margin-top: 10px;
+    font-size: 10px;
+    color: grey;
+}
+
+#total-price{
+    font-weight: 600;
+    font-size: 15px;
+}

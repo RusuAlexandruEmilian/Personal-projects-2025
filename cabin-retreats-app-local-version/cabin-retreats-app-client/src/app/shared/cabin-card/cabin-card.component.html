@@ -1,0 +1,48 @@
+<div class="card-wrapper">
+    <a [routerLink]="['/cabin-details', cabinName]" [state]="{ data: [cabin.id, check_in, check_out, guests_and_number_of_nights, totalPrice] }">
+        <div class="card">
+            <div class="card-image">
+                <img [src]="cabin.picture" alt="cabin image">
+            </div>
+            
+            <div class="card-details">
+                <div id="cabin-name">{{ cabin.name }}</div>
+                
+                <div class="location-container">
+                    <img src="assets/icons/pin.png" id="pin">
+                    <div id="location">{{ cabin.location }}, {{ cabin.county }}</div>
+                </div>
+                
+                <div class="rating-container">
+                    <div class="rating-value">{{ cabin.rating | number:'1.1-1'}}</div>
+                    <img src="assets/icons/star.png" id="star">
+                    <div id="number-of-reviews">200 reviews</div>
+                </div>
+
+                <div class="price-container">
+                    <div id="price-details">Price/night</div>
+                    <div class="price-currency-container">
+                        <div>{{ cabin.price_per_night }}</div>
+                        <div>&euro;</div>
+                    </div>
+                    
+                </div>
+                @if(guests_and_number_of_nights){
+                    <div class="guests_totalPrice_container">
+                        <div id="guests">{{guests_and_number_of_nights}}</div>
+                        <div id="total-price">total {{totalPrice}} &euro;</div>
+                    </div>
+                }
+                
+                
+            </div>
+            
+        </div>
+    </a>
+</div>
+    
+    
+
+
+
+
